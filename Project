@@ -1,0 +1,23 @@
+hotdog_pack = 10
+hotdog_bun_pack = 8
+
+people_attending = int(input('Enter the number of people attending'))
+hotdogs_per_person = int(input('Enter number of hot dogs per person:'))
+
+hotdogs_required = people_attending * hotdogs_per_person
+
+hotdog_packs_required, hotdogs_leftover = divmod(hotdogs_required, hotdog_pack)
+hotdog_bun_packs_required, hotdog_buns_leftover = divmod(hotdogs_required, hotdog_bun_pack)
+
+if hotdogs_leftover:
+    hotdog_packs_required += 1
+    hotdogs_leftover = hotdog_pack - hotdogs_leftover
+
+if hotdog_buns_leftover:
+    hotdog_bun_packs_required += 1
+    hotdog_buns_leftover = hotdog_bun_pack - hotdog_buns_leftover
+
+print('Minimum number of packages of hot dogs required: ', hotdog_packs_required)
+print('Minimum packages of hot dog buns required: ', hotdog_bun_packs_required)
+print('Hot dogs left over: ', hotdogs_leftover)
+print('Hot dog buns left over: ', hotdog_buns_leftover)
